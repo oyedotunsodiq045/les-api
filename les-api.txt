@@ -1,0 +1,31 @@
+Lagos State Economic Summit - EIGBETTI
+
+Stack: NodeJS, Express, MongoDB
+
+User (User, SME) Feature
+    Register, [.]
+Admin Dashboard Features - 
+    User, 
+        Read a User,                [.]
+        Read all Users,             [.]
+        Read all SME's & Non SME's, [.]
+        Update a User,              [.]
+        Delete a User,              [.]
+    Auth, 
+        Register, [.]
+        Login,    [.]
+        Logout,   [x]
+    SME, 
+        Read all SME's, [.]
+    Non SME, 
+        Read all Non SME's, [.]
+    Admin, 
+        Read all Admins, [.]
+    Total Registered, 
+        Today, [.]
+        Week,  [.]
+        Month, [.]
+    Export Users as CSV, 
+        SME,           [.]
+        Non SME,       [.]
+        SME & Non SME, [.]
