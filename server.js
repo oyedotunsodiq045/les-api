@@ -35,7 +35,7 @@ app.use('/api/v1/admin/users', users);
 
 app.use(errorHandler);
 
-const PORT = process.env.PORT || 5004;
+const PORT = process.env.PORT || 3000;
 
 const server = app.listen(
   PORT,
