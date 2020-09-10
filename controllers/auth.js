@@ -21,11 +21,11 @@ exports.register = asyncHandler(async (req, res, next) => {
   });
 
   // Create token
-  const token = user.getSignedJwtToken();
+  // const token = user.getSignedJwtToken();
 
-  res.status(200).json({ success: true, token });
+  // res.status(200).json({ success: true, token });
 
-  // sendTokenResponse(user, 200, res);
+  sendTokenResponse(user, 200, res);
 });
 
 // @desc    Login user
@@ -54,11 +54,11 @@ exports.login = asyncHandler(async (req, res, next) => {
   }
 
   // Create token
-  const token = user.getSignedJwtToken();
+  // const token = user.getSignedJwtToken();
 
-  res.status(200).json({ success: true, token });
+  // res.status(200).json({ success: true, token });
 
-  // sendTokenResponse(user, 200, res);
+  sendTokenResponse(user, 200, res);
 });
 
 // Get token from model, create cookie and send response
@@ -72,6 +72,10 @@ const sendTokenResponse = (user, statusCode, res) => {
     ),
     httpOnly: true,
   };
+
+  if (process.env.NODE_ENV == 'production') {
+    options.secure = true;
+  }
 
   res
     .status(statusCode)
