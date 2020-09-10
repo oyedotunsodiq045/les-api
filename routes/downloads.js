@@ -3,10 +3,18 @@ const { exportUsers, exportSme, exportNonSme } = require('../controllers/downloa
 
 const router = express.Router();
 
-router.route('/users').get(exportUsers);
+const { protect } = require('../middleware/auth');
 
-router.route('/smes').get(exportSme);
+router
+    .route('/users')
+    .get(protect, exportUsers);
 
-router.route('/non-smes').get(exportNonSme);
+router
+    .route('/smes')
+    .get(protect, exportSme);
+
+router
+    .route('/non-smes')
+    .get(protect, exportNonSme);
 
 module.exports = router;

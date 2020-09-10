@@ -16,43 +16,45 @@ const {
 
 const router = express.Router();
 
+const { protect } = require('../middleware/auth');
+
 router
   .route('/')
-  .get(getUsers)
-  .post(createUser);
+  .get(protect, getUsers)
+  .post(protect, createUser);
 
 router
   .route('/smes')
-  .get(getSmeUsers);
+  .get(protect, getSmeUsers);
 
 router
   .route('/non-smes')
-  .get(getNonSmeUsers);
+  .get(protect, getNonSmeUsers);
 
 router
   .route('/smes-non-smes')
-  .get(getNonAdminUsers)
+  .get(protect, getNonAdminUsers)
 
 router
   .route('/admins')
-  .get(getAdminUsers);
+  .get(protect, getAdminUsers);
 
 router
   .route('/today')
-  .get(getTodayRegisteredUsers);
+  .get(protect, getTodayRegisteredUsers);
 
 router
   .route('/week')
-  .get(getThisWeekRegisteredUsers);
+  .get(protect, getThisWeekRegisteredUsers);
 
 router
   .route('/month')
-  .get(getThisMonthRegisteredUsers);
+  .get(protect, getThisMonthRegisteredUsers);
 
 router
   .route('/:id')
   .get(getUser)
-  .put(updateUser)
-  .delete(deleteUser);
+  .put(protect, updateUser)
+  .delete(protect, deleteUser);
 
 module.exports = router;
